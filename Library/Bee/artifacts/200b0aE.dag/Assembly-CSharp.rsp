@@ -406,6 +406,7 @@
 "Assets/Creator Kit - RPG/Scripts/UI/UserInterfaceAudio.cs"
 "Assets/Personal/Script/Collectible.cs"
 "Assets/Personal/Script/Inventory.cs"
+"Assets/Personal/Script/NPC.cs"
 "Assets/Personal/Script/Player.cs"
 "Assets/Personal/Script/UI/Inventory_UI.cs"
 "Assets/Personal/Script/UI/Slot_UI.cs"

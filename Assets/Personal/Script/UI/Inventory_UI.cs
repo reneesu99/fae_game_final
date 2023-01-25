@@ -19,10 +19,11 @@ public class Inventory_UI : MonoBehaviour
     public void ToggleInventory()
         {
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
-            Setup();
+            Reset();
+            
         }
-    
-    void Setup()
+
+    void Reset()
     {
         for(int i = 0; i < slots.Count; i++)
         {
