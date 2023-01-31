@@ -33,6 +33,12 @@ public class Inventory
 
     public void Add(Collectible item)
     {
+
+        // if (item.type == quest.goal.type)
+        // {
+        //     Debug.Log("goal")
+        //     quest.goal.currentAmount ++;
+        // }
         foreach(Slot slot in slots)
         {
             if(slot.type == item.type)
@@ -54,5 +60,19 @@ public class Inventory
         }
         
     }
+    public void Remove(int index)
+    {
+        Slot slot = slots[index];
+        if(slot.count > 0)
+        {
+            slot.count--;
+            if(slot.count == 0)
+            {
+                slot.icon = null;
+                slot.type = CollectibleType.NONE;
+            }
+        }
+    }
+    
 }
 

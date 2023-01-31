@@ -382,16 +382,6 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
-"Assets/Creator Kit - RPG/Cutscene/Editor/CutsceneEditor.cs"
-"Assets/Creator Kit - RPG/Cutscene/Editor/CutsceneEventDrawer.cs"
-"Assets/Creator Kit - RPG/Editor/ConversationPieceDialog.cs"
-"Assets/Creator Kit - RPG/Editor/ConversationPieceDrawer.cs"
-"Assets/Creator Kit - RPG/Editor/ConversationScriptEditor.cs"
-"Assets/Creator Kit - RPG/Editor/InventoryItemSearchDialog.cs"
-"Assets/Creator Kit - RPG/Editor/MechanicsGizmos.cs"
-"Assets/Creator Kit - RPG/Editor/SceneContext.cs"
-"Assets/Creator Kit - RPG/Editor/StoryItemEditor.cs"
-"Assets/Creator Kit - RPG/Editor/StoryItemSearchDialog.cs"
 "Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs"
 -langversion:9.0
 

@@ -19,11 +19,11 @@ public class Inventory_UI : MonoBehaviour
     public void ToggleInventory()
         {
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
-            Reset();
+            Refresh();
             
         }
 
-    void Reset()
+    void Refresh()
     {
         for(int i = 0; i < slots.Count; i++)
         {
@@ -37,5 +37,11 @@ public class Inventory_UI : MonoBehaviour
                 slots[i].SetEmpty();
             }
         }
+    }
+
+    public void Remove(int slotIndex)
+    {
+        player.inventory.Remove(slotIndex);
+        Refresh();
     }
 }

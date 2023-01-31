@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public Inventory inventory;
     public float speed;
     public Animator animator;
+    public Quest quest;
     private void Awake()
     {
         inventory = new Inventory(12);
@@ -47,6 +48,10 @@ public class Player : MonoBehaviour
         {
             Collectible collectible = other.GetComponent<Collectible>();
             inventory.Add(collectible);
+            if (quest.goal.type == collectible.type)
+            {
+                quest.goal.currentAmount ++;
+            }
             Destroy(other.gameObject);
         }
 

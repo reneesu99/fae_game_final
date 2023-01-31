@@ -8,9 +8,11 @@ using TMPro;
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
+    public Conversation[] conversations;
     public TMP_Text dialogueText;
     public GameObject contButton;
-    public string[] dialogue;
+    public QuestGiver questGiver;
+    private string[] dialogue;
     private int index;
 
     public float wordSpeed;
@@ -18,6 +20,23 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
+        if(conversations[0].quest.isActive)
+        {
+
+            if(conversations[0].quest.goal.IsReached())
+            {
+                dialogue = conversations[0].after;
+            }
+            else
+            {
+                Debug.Log("to your right");
+                dialogue = conversations[0].during;
+            }
+        }
+        else
+        {
+            dialogue = conversations[0].before;
+        }
         if(Input.GetKeyDown(KeyCode.F) && playerIsClose)
         {
             if (dialoguePanel.activeInHierarchy)
@@ -26,7 +45,7 @@ public class NPC : MonoBehaviour
             }
             else
             {
-                Debug.Log("hi");
+                Debug.Log("talking");
                 dialoguePanel.SetActive(true);
                 StartCoroutine(Typing());
 
@@ -66,6 +85,7 @@ public class NPC : MonoBehaviour
         }
         else
         {
+            questGiver.OpenQuestWindow(conversations[0].quest);
             zeroText();
         }
     }
@@ -74,7 +94,7 @@ public class NPC : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerIsClose = true;
+            play erIsClose = true;
         }
     }
         private void OnTriggerExit2D(Collider2D other)
