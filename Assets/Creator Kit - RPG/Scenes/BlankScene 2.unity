@@ -31896,8 +31896,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -476.75684}
-  m_SizeDelta: {x: -534.4764, y: -1029.3643}
+  m_AnchoredPosition: {x: 0, y: -361.86725}
+  m_SizeDelta: {x: -534.476, y: -799.586}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266764345
 MonoBehaviour:
@@ -34950,6 +34950,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1408506671}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1353290416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353290418}
+  - component: {fileID: 1353290417}
+  m_Layer: 0
+  m_Name: Network
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1353290417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353290416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590b145633c324c878457f6717b08ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1353290418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353290416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1408506671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35505,6 +35549,7 @@ MonoBehaviour:
       requiredAmount: 0
       currentAmount: 0
       type: 0
+  gold: 0
 --- !u!61 &1781258422
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36115,6 +36160,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1316646913}
   contButton: {fileID: 1047902087}
   questGiver: {fileID: 1683314475}
+  player: {fileID: 1781258421}
   wordSpeed: 0.06
   playerIsClose: 0
 --- !u!70 &1982283900

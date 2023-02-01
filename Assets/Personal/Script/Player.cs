@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float speed;
     public Animator animator;
     public Quest quest;
+    public int gold;
     private void Awake()
     {
         inventory = new Inventory(12);
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
 
 
         Vector3 direction = new Vector3(horizontal, vertical);
+        direction.Normalize();
         AnimateMovement(direction);
 
         transform.position += direction * speed * Time.deltaTime;

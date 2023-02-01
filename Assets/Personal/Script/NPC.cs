@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.Networking;
 
 public class NPC : MonoBehaviour
 {
@@ -12,11 +12,14 @@ public class NPC : MonoBehaviour
     public TMP_Text dialogueText;
     public GameObject contButton;
     public QuestGiver questGiver;
+    public Player player;
+    // public WebRequestAsyncOperation response;
     private string[] dialogue;
     private int index;
 
     public float wordSpeed;
     public bool playerIsClose;
+    public UnityWebRequest Request;
 
     void Update()
     {
@@ -26,10 +29,13 @@ public class NPC : MonoBehaviour
             if(conversations[0].quest.goal.IsReached())
             {
                 dialogue = conversations[0].after;
+                player.gold += conversations[0].quest.gold;
+
             }
             else
             {
-                Debug.Log("to your right");
+                Debug.Log(player.gold);
+                Debug.Log(conversations[0].quest.gold);
                 dialogue = conversations[0].during;
             }
         }
@@ -39,13 +45,14 @@ public class NPC : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.F) && playerIsClose)
         {
+
+
             if (dialoguePanel.activeInHierarchy)
             {
                 zeroText();
             }
             else
             {
-                Debug.Log("talking");
                 dialoguePanel.SetActive(true);
                 StartCoroutine(Typing());
 
@@ -94,7 +101,7 @@ public class NPC : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            play erIsClose = true;
+            playerIsClose = true;
         }
     }
         private void OnTriggerExit2D(Collider2D other)
