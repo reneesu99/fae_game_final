@@ -31221,6 +31221,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tilemaps
       objectReference: {fileID: 0}
+    - target: {fileID: 8737446524550846901, guid: a6ecdc63374074e6eb42a738a5683a91,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.014
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6ecdc63374074e6eb42a738a5683a91, type: 3}
 --- !u!4 &80081313 stripped
@@ -31314,6 +31319,56 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8171158352695083174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &123110185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123110187}
+  - component: {fileID: 123110186}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &123110186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123110185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ab721e9572f40af828427bc520c688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 266764343}
+  dialogueText: {fileID: 1316646913}
+  questGiver: {fileID: 1683314475}
+  wordSpeed: 0.06
+  contButton: {fileID: 1047902087}
+  dialogue: []
+--- !u!4 &123110187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123110185}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.09775, y: 4.4243293, z: -0.020976957}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &138347735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3273605809934700990, guid: 1c14ebde4b5e54881a67b686f46e6b1d,
@@ -31896,8 +31951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -361.86725}
-  m_SizeDelta: {x: -534.476, y: -799.586}
+  m_AnchoredPosition: {x: 0, y: -276.34082}
+  m_SizeDelta: {x: -534.476, y: -607.7108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266764345
 MonoBehaviour:
@@ -31912,7 +31967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31937,6 +31992,170 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266764343}
   m_CullTransparentMesh: 1
+--- !u!1 &276994632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 276994634}
+  - component: {fileID: 276994633}
+  - component: {fileID: 276994637}
+  - component: {fileID: 276994636}
+  - component: {fileID: 276994635}
+  m_Layer: 0
+  m_Name: pets_148
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &276994633
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276994632}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -108034758, guid: af97de7820a72450abf1fa2db42443aa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.53125, y: 0.40625}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &276994634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276994632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.576, y: 3.628, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &276994635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276994632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82427cebe0c664595bc97bcb1645b269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 266764343}
+  conversations:
+  - before:
+    - Hi
+    during: []
+    after: []
+    quest:
+      isActive: 0
+      title: Test
+      description: 
+      gold: 0
+      goal:
+        goalType: 0
+        requiredAmount: 0
+        currentAmount: 0
+        type: 0
+  dialogueText: {fileID: 1316646913}
+  contButton: {fileID: 1047902087}
+  questGiver: {fileID: 1683314475}
+  player: {fileID: 1781258421}
+  dialogueManager: {fileID: 123110186}
+  wordSpeed: 0.06
+  playerIsClose: 0
+--- !u!70 &276994636
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276994632}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.005450964, y: 0.010902345}
+  m_Size: {x: 1.2042298, y: 1.20423}
+  m_Direction: 0
+--- !u!61 &276994637
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276994632}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.035432458, y: -0.23167372}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.0625, y: 0.8125}
+    newSize: {x: 0.53125, y: 0.40625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8965256, y: 1.2758474}
+  m_EdgeRadius: 0
 --- !u!1001 &315429051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33979,7 +34198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1047902088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34045,8 +34264,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1982283899}
-        m_TargetAssemblyTypeName: NPC, Assembly-CSharp
+      - m_Target: {fileID: 123110186}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
         m_MethodName: NextLine
         m_Mode: 1
         m_Arguments:
@@ -36149,7 +36368,7 @@ MonoBehaviour:
     - Thank you!
     quest:
       isActive: 0
-      title: Get chicken some apples
+      title: Get chicken apples
       description: Pick up 3 apples
       gold: 10
       goal:
@@ -36161,6 +36380,7 @@ MonoBehaviour:
   contButton: {fileID: 1047902087}
   questGiver: {fileID: 1683314475}
   player: {fileID: 1781258421}
+  dialogueManager: {fileID: 123110186}
   wordSpeed: 0.06
   playerIsClose: 0
 --- !u!70 &1982283900

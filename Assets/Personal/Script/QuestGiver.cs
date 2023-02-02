@@ -17,6 +17,9 @@ public class QuestGiver : MonoBehaviour
     public void OpenQuestWindow(Quest quest)
     {
         Debug.Log("OpenQuestWindow");
+        Debug.Log(quest);
+        Debug.Log(quest.title);
+
         this.quest = quest;
         questWindow.SetActive(true);
         titleText.text = quest.title;
