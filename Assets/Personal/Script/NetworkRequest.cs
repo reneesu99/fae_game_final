@@ -3,10 +3,11 @@ using UnityEngine;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Text;
-
+using System;
 public class NetworkRequest: MonoBehaviour
 
 {
+    
     [ContextMenu("Test Get")]
     public async void TestGet()
     {
@@ -35,18 +36,15 @@ public class NetworkRequest: MonoBehaviour
     // }
 
     [ContextMenu("Test Post")]
-
     public async void TestPost()
     {
-        // var newForm = new Dictionary<string, string>();
-        // newForm.Add("model", "text-davinci-003");
+
         ChatGPTRequest body = new ChatGPTRequest();
         body.model = "text-davinci-003";
-        body.prompt = "You are my magical talking cat and I am a fairy. You are my companion. I say I feel alone.";
-        // WWWForm form = new WWWForm();
-        // form.AddField("model", "text-davinci-003");
-        // form.AddField("prompt", "You are my magical talking cat and I am a fairy. You are my companion. I say I feel alone.");
-        // Debug.Log(form);
+        body.prompt = "You are my magical talking cat and I am a fairy. You are my companion. I say: ";
+        string playerInput = "hi";
+        body.prompt += playerInput;
+
         var bodyJsonString = JsonUtility.ToJson(body);
         Debug.Log(bodyJsonString);
         var url = "https://api.openai.com/v1/completions";
@@ -69,7 +67,9 @@ public class NetworkRequest: MonoBehaviour
         request.uploadHandler = (UploadHandler) new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler) new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Authorization", "Bearer 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");
+        var key = Secrets.CHAT_GPT_KEY;
+        Debug.Log(key);
+        request.SetRequestHeader("Authorization", "Bearer "+ key);
 
 
         var operation = request.SendWebRequest();

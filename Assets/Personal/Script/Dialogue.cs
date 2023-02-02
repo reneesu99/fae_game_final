@@ -18,11 +18,11 @@ public class Dialogue: MonoBehaviour
     private Quest quest;
     
 
-    public string[] dialogue;
+    public List<string> dialogue;
     private int index;
 
 
-    public void New(string[] dialogueGiven, Quest questGiven = null)
+    public void New(List<string> dialogueGiven, Quest questGiven = null)
     {
         dialogue = dialogueGiven;
 
@@ -35,13 +35,6 @@ public class Dialogue: MonoBehaviour
 
     }
 
-    // public void Update()
-    // {
-    //     if(dialogueText.text == dialogue[index])
-    //     {
-    //         contButton.SetActive(true);
-    //     }
-    // }
     public void zeroText()
     {
         dialogueText.text = "";
@@ -61,7 +54,7 @@ public class Dialogue: MonoBehaviour
     public void NextLine()
     {
         // contButton.SetActive(false);
-        if(index < dialogue.Length - 1)
+        if(index < dialogue.Count - 1)
         {
             index++;
             dialogueText.text = "";
@@ -69,15 +62,18 @@ public class Dialogue: MonoBehaviour
         }
         else
         {
-            Debug.Log(quest.title);
 
             zeroText();
-            // Debug.Log(conversations[0].before[0]);
-            // Debug.Log(conversations[0].quest.title);
+            Debug.Log(quest);
+
+
             if(quest != null)
             {
                 questGiver.OpenQuestWindow(quest);
             }
+            quest = null;
+
+
 
         }
     }

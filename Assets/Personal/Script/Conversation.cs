@@ -9,9 +9,9 @@ public class Conversation
     // public Dialogue[] conversation;
     // public Dialogue[] giveQuest;
     // public Dialogue[] finishQuest;
-    public string[] before;
-    public string[] during;
-    public string[] after;
+    public List<string> before;
+    public List<string> during;
+    public List<string> after;
 
     public Quest quest;
 }

@@ -15,9 +15,10 @@ public class NPC : MonoBehaviour
     public QuestGiver questGiver;
     public Player player;
     // public WebRequestAsyncOperation response;
-    private string[] dialogue;
+    public List<string> dialogue;
     public Dialogue dialogueManager;
     private int index;
+    private Quest quest;
 
     public float wordSpeed;
     public bool playerIsClose;
@@ -33,70 +34,31 @@ public class NPC : MonoBehaviour
             {
                 dialogue = conversations[0].after;
                 player.gold += conversations[0].quest.gold;
+                quest = null;
 
             }
             else
             {
-                // Debug.Log(player.gold);
-                // Debug.Log(conversations[0].quest.gold);
                 dialogue = conversations[0].during;
+                quest = null;
             }
         }
         else
         {
-            // Debug.Log(conversations[0].before[0]);
 
             dialogue = conversations[0].before;
-            // Debug.Log(conversations[0].quest.title);
+            quest = conversations[0].quest;
 
         }
         if(Input.GetKeyDown(KeyCode.F) && playerIsClose)
         {
                 dialoguePanel.SetActive(true);
-                // Debug.Log(conversations[0].quest.title);
-                dialogueManager.New(dialogue, conversations[0].quest);
+                dialogueManager.New(dialogue, quest);
         }
-        // if(dialogueText.text == dialogue[index])
-        // {
-        //     contButton.SetActive(true);
-        // }
+
     }
 
 
-    // public void zeroText()
-    // {
-    //     dialogueText.text = "";
-    //     index = 0;
-    //     dialoguePanel.SetActive(false);
-    // }
-
-    // IEnumerator Typing()
-    // {
-    //     foreach(char letter in dialogue[index].ToCharArray())
-    //     {
-    //         dialogueText.text+= letter;
-    //         yield return new WaitForSeconds(wordSpeed);
-    //     }
-    // }
-
-    // public void NextLine()
-    // {
-    //     contButton.SetActive(false);
-    //     if(index < dialogue.Length - 1)
-    //     {
-    //         index++;
-    //         dialogueText.text = "";
-    //         StartCoroutine(Typing());
-    //     }
-    //     else
-    //     {
-    //         zeroText();
-    //         Debug.Log(conversations[0].before[0]);
-    //         Debug.Log(conversations[0].quest.title);
-    //         questGiver.OpenQuestWindow(conversations[0].quest);
-
-    //     }
-    // }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
