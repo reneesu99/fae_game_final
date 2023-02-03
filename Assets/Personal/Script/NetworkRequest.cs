@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Text;
 using System;
+
 public class NetworkRequest: MonoBehaviour
 
 {
@@ -49,13 +50,12 @@ public class NetworkRequest: MonoBehaviour
     // }
 
     [ContextMenu("Test Post")]
-    public async void TestPost()
+    public async Task<string> TestPost(string playerInput)
     {
 
         ChatGPTRequest body = new ChatGPTRequest();
         body.model = "text-davinci-003";
         body.prompt = "You are my magical talking cat and I am a fairy. You are my companion. I say: ";
-        string playerInput = "hi";
         body.prompt += playerInput;
 
         var bodyJsonString = JsonUtility.ToJson(body);
@@ -86,10 +86,12 @@ public class NetworkRequest: MonoBehaviour
             // Debug.Log($"Success: {request.downloadHandler.text}");
             Debug.Log(response.choices[0].text);
             Debug.Log(request.downloadHandler.text);
+            return response.choices[0].text;
         }
         else
         {
             Debug.Log($"Failed: {request.downloadHandler.text}");
+            return $"Failed: {request.downloadHandler.text}";
         }
 
     }

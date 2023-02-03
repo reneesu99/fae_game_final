@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
+    public bool cat;
 
     public Conversation[] conversations;
     public TMP_Text dialogueText;
@@ -17,6 +18,8 @@ public class NPC : MonoBehaviour
     // public WebRequestAsyncOperation response;
     public List<string> dialogue;
     public Dialogue dialogueManager;
+    public AIDialogue AIDialogueManager;
+
     private int index;
     private Quest quest;
 
@@ -52,8 +55,16 @@ public class NPC : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.F) && playerIsClose)
         {
-                dialoguePanel.SetActive(true);
+            dialoguePanel.SetActive(true);
+            if(cat)
+            {
+                dialogueManager.New(new List<string>() {"Hi"}, null, true);
+            }
+            else
+            {
                 dialogueManager.New(dialogue, quest);
+            }
+
         }
 
     }

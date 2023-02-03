@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading.Tasks;
 
 public class Dialogue: MonoBehaviour
 {
     public GameObject dialoguePanel;
+    public TMP_InputField inputField;
+    public GameObject inputPanel;
+    public static bool isOpen;
+
 
     public TMP_Text dialogueText;
     public QuestGiver questGiver;
@@ -20,11 +25,14 @@ public class Dialogue: MonoBehaviour
 
     public List<string> dialogue;
     private int index;
+    private bool AI;
 
 
-    public void New(List<string> dialogueGiven, Quest questGiven = null)
+    public void New(List<string> dialogueGiven, Quest questGiven = null, bool AI = false)
     {
+        isOpen = true;
         dialogue = dialogueGiven;
+        this.AI = AI;
 
         if(questGiven != null)
         {
@@ -40,6 +48,8 @@ public class Dialogue: MonoBehaviour
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
+        isOpen = false;
+
     }
 
     IEnumerator Typing()
@@ -49,6 +59,11 @@ public class Dialogue: MonoBehaviour
             dialogueText.text+= letter;
             yield return new WaitForSeconds(wordSpeed);
         }
+    }
+        public void toggleInputTextPanel(bool state)
+    {
+        dialogueText.text = "";
+        inputPanel.SetActive(state);
     }
 
     public void NextLine()
@@ -62,21 +77,60 @@ public class Dialogue: MonoBehaviour
         }
         else
         {
-
-            zeroText();
-            Debug.Log(quest);
-
-
-            if(quest != null)
+            if(AI)
             {
-                questGiver.OpenQuestWindow(quest);
+                toggleInputTextPanel(true);
             }
-            quest = null;
+            else
+            {
+                zeroText();
+                Debug.Log(quest);
+
+
+                if(quest != null)
+                {
+                    questGiver.OpenQuestWindow(quest);
+                }
+                quest = null;
+
+            }
 
 
 
         }
     }
+
+    public async void Submit()
+    {
+        string playerInput = getInput();
+        string chatGPTResponse = await getChatGPTResponse(playerInput);
+        dialogue.Add(chatGPTResponse);
+        toggleInputTextPanel(false); 
+        NextLine();
+
+        // takes player input gets API response, appends to dialogue and runs NextLine
+
+    }
+
+
+
+    public string getInput()
+    {
+        string text = inputField.text;
+
+        return text;
+        // gets input from player and returns string
+    }
+
+    public Task<string> getChatGPTResponse(string input)
+    {
+        // gets chat response from ChatGPT API with input
+        // returns reponse as string
+        NetworkRequest network = new NetworkRequest();
+        return network.TestPost(input);
+    }
+    
+
 
 
 }

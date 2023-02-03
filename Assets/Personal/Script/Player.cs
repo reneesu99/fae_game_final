@@ -15,15 +15,18 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        if (!Dialogue.isOpen)
+        {
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
 
 
-        Vector3 direction = new Vector3(horizontal, vertical);
-        direction.Normalize();
-        AnimateMovement(direction);
+            Vector3 direction = new Vector3(horizontal, vertical);
+            direction.Normalize();
+            AnimateMovement(direction);
 
-        transform.position += direction * speed * Time.deltaTime;
+            transform.position += direction * speed * Time.deltaTime;
+        }
     }
     
     void AnimateMovement(Vector3 direction)
