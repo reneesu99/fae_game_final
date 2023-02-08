@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e211d13a6b3564124a6d113fcc769596, type: 3}
+  m_Name: Crop Data
+  m_EditorClassIdentifier: 
+  daysToGrow: 6
+  growProgressSprites:
+  - {fileID: -1186324872, guid: aecca853dd4a94bcd8ff4fff64626bae, type: 3}
+  - {fileID: -1763589464, guid: aecca853dd4a94bcd8ff4fff64626bae, type: 3}
+  - {fileID: -1405305289, guid: aecca853dd4a94bcd8ff4fff64626bae, type: 3}
+  - {fileID: -1553565522, guid: aecca853dd4a94bcd8ff4fff64626bae, type: 3}
+  - {fileID: 1900713831, guid: aecca853dd4a94bcd8ff4fff64626bae, type: 3}
+  readyToHarvestSprite: {fileID: 1195576781, guid: aecca853dd4a94bcd8ff4fff64626bae,
+    type: 3}
+  purchasePrice: 5
+  sellPrice: 20

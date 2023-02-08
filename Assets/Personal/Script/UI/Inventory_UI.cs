@@ -27,13 +27,14 @@ public class Inventory_UI : MonoBehaviour
     {
         for(int i = 0; i < slots.Count; i++)
         {
+            // Debug.Log(slots.Count);
             if(player.inventory.slots[i].type != CollectibleType.NONE)
             {
                 slots[i].SetItem(player.inventory.slots[i]);
             }
             else
             {
-                Debug.Log(i);
+                // Debug.Log(i);
                 slots[i].SetEmpty();
             }
         }
@@ -41,7 +42,13 @@ public class Inventory_UI : MonoBehaviour
 
     public void Remove(int slotIndex)
     {
-        player.inventory.Remove(slotIndex);
-        Refresh();
+        Collectible itemToDrop = GameManager.instance.itemManager.GetItemByType(
+            player.inventory.slots[slotIndex].type);
+        if(itemToDrop != null)
+        {
+            player.DropItem(itemToDrop);
+            player.inventory.Remove(slotIndex);
+            Refresh();
+        }
     }
 }

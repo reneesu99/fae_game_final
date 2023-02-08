@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour
     // public WebRequestAsyncOperation response;
     public List<string> dialogue;
     public Dialogue dialogueManager;
-    public AIDialogue AIDialogueManager;
+    // public AIDialogue AIDialogueManager;
 
     private int index;
     private Quest quest;
@@ -30,6 +30,8 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
+        // TODO: helper method for updating conversations
+        // TODO: use dictionary to store conversations 
         if(conversations[0].quest.isActive)
         {
 
