@@ -73,5 +73,5 @@ crashlytics-build.properties
 
 
 # Secrets
-/Assets/Personal/Script/APIKey.cs
-/Assets/Personal/Script/APIKey.cs.meta
+/Assets/Personal/Script/NetworkRequest/APIKey.cs
+/Assets/Personal/Script/NetworkRequest/APIKey.cs.meta

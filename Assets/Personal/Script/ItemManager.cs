@@ -5,30 +5,30 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Collectible[] collectibleItems;
-    private Dictionary<CollectibleType, Collectible> collectibleItemsDict = new Dictionary<CollectibleType, Collectible>();
+    public Item[] items;
+    private Dictionary<string, Item> nameToItemDict = new Dictionary<string, Item>();
 
     private void Awake()
     {
-        foreach(Collectible item in collectibleItems)
+        foreach(Item item in items)
         {
             AddItem(item);
         }
     }
-    private void AddItem(Collectible item)
+    private void AddItem(Item item)
     {
-        if(!collectibleItemsDict.ContainsKey(item.type))
+        if(!nameToItemDict.ContainsKey(item.data.itemName))
         {
-            collectibleItemsDict.Add(item.type, item);
+            nameToItemDict.Add(item.data.itemName, item);
 
         }
     }
 
-    public Collectible GetItemByType(CollectibleType type)
+    public Item GetItemByName(string key)
     {
-        if(collectibleItemsDict.ContainsKey(type))
+        if(nameToItemDict.ContainsKey(key))
         {
-            return collectibleItemsDict[type];
+            return nameToItemDict[key];
         }
 
         return null;

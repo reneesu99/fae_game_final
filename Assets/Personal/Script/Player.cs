@@ -14,13 +14,13 @@ public class Player : MonoBehaviour
         inventory = new Inventory(27);
     }
 
-    public void DropItem(Collectible item)
+    public void DropItem(Item item)
     {
         Vector2 spawnLocation = transform.position;
         Vector2 spawnOffset = Random.insideUnitCircle * 1.25f;
 
         Debug.Log("Dropping item");
-        Collectible droppedItem = Instantiate(item, spawnLocation+spawnOffset, Quaternion.identity);
+        Item droppedItem = Instantiate(item, spawnLocation+spawnOffset, Quaternion.identity);
         droppedItem.rb2d.AddForce(spawnOffset * .2f, ForceMode2D.Impulse);
         
     }
@@ -73,9 +73,9 @@ public class Player : MonoBehaviour
     {
         if(other.CompareTag("Collectible")) 
         {
-            Collectible collectible = other.GetComponent<Collectible>();
-            inventory.Add(collectible);
-            if (quest.goal.type == collectible.type)
+            Item item = other.GetComponent<Item>();
+            inventory.Add(item);
+            if (quest.goal.itemName == item.data.itemName)
             {
                 quest.goal.currentAmount ++;
             }

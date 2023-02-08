@@ -8,7 +8,7 @@ public class QuestGoal
     public GoalType goalType;
     public int requiredAmount;
     public int currentAmount;
-    public CollectibleType type;
+    public string itemName;
     public bool IsReached()
     {
         return (currentAmount >= requiredAmount);

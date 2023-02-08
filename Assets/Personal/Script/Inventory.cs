@@ -8,14 +8,14 @@ public class Inventory
     [System.Serializable]
     public class Slot
     {
-        public CollectibleType type;
+        public string itemName;
         public int count;
         public int maxAllowed;
         public Sprite icon;
 
         public Slot()
         {
-            type = CollectibleType.NONE;
+            itemName = "";
             count = 0;
             maxAllowed = 99;
         }
@@ -31,7 +31,7 @@ public class Inventory
         }
     }
 
-    public void Add(Collectible item)
+    public void Add(Item item)
     {
 
         // if (item.type == quest.goal.type)
@@ -41,19 +41,19 @@ public class Inventory
         // }
         foreach(Slot slot in slots)
         {
-            if(slot.type == item.type)
+            if(slot.itemName== item.data.itemName)
             {
-                slot.icon = item.icon;
+                slot.icon = item.data.icon;
                 slot.count++;
                 return;
             }
         }
         foreach(Slot slot in slots)
         {
-            if(slot.type == CollectibleType.NONE)
+            if(slot.itemName == "")
             {
-                slot.icon = item.icon;
-                slot.type = item.type;
+                slot.icon = item.data.icon;
+                slot.itemName= item.data.itemName;
                 slot.count = 1;
                 return;
             }
@@ -69,7 +69,7 @@ public class Inventory
             if(slot.count == 0)
             {
                 slot.icon = null;
-                slot.type = CollectibleType.NONE;
+                slot.itemName= "";
             }
         }
     }

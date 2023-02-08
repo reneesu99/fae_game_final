@@ -122,11 +122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053372380488391722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb33982709e18419fba5824b2c7800ea, type: 3}
+  m_Script: {fileID: 11500000, guid: bece5fdb53fb340dab586981c4dba230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  icon: {fileID: -2049397989, guid: 84dbaa58e629a4956bcad10525ee64fa, type: 3}
+  data: {fileID: 11400000, guid: ceefd785bc5a14f048627003bdf51277, type: 2}
   rb2d: {fileID: 0}
 --- !u!50 &4307016909524689357
 Rigidbody2D:
