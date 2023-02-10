@@ -5,7 +5,7 @@ using System.Collections;
 using System.Text;
 using System;
 
-public class NetworkRequest: MonoBehaviour
+public class NetworkRequest
 
 {
     [System.Serializable]
@@ -57,6 +57,7 @@ public class NetworkRequest: MonoBehaviour
         body.model = "text-davinci-003";
         body.prompt = "You are my magical talking cat and I am a fairy. You are my companion. I say: ";
         body.prompt += playerInput;
+        body.prompt += ". Please write what the cat would respond:";
 
         var bodyJsonString = JsonUtility.ToJson(body);
         Debug.Log(bodyJsonString);
@@ -86,12 +87,19 @@ public class NetworkRequest: MonoBehaviour
             // Debug.Log($"Success: {request.downloadHandler.text}");
             Debug.Log(response.choices[0].text);
             Debug.Log(request.downloadHandler.text);
+            request.uploadHandler.Dispose();
+            request.downloadHandler.Dispose();
+            request.Dispose();
             return response.choices[0].text;
         }
         else
         {
+            var errorText = request.downloadHandler.text;
             Debug.Log($"Failed: {request.downloadHandler.text}");
-            return $"Failed: {request.downloadHandler.text}";
+            request.uploadHandler.Dispose();
+            request.downloadHandler.Dispose();
+            request.Dispose();
+            return $"Failed: {errorText}";
         }
 
     }

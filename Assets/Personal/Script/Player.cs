@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Inventory inventory;
+    // public Inventory inventory;
+    // public Inventory toolbar;
+    public InventoryManager inventory;
+
     public float speed;
     public Animator animator;
     public Quest quest;
     public int gold;
     private void Awake()
     {
-        inventory = new Inventory(27);
+        // inventory = new Inventory(27);
+        // toolbar = new Inventory(9);
+        inventory = GetComponent<InventoryManager>();
     }
 
     public void DropItem(Item item)
@@ -74,7 +79,7 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Collectible")) 
         {
             Item item = other.GetComponent<Item>();
-            inventory.Add(item);
+            inventory.Add("Backpack",item);
             if (quest.goal.itemName == item.data.itemName)
             {
                 quest.goal.currentAmount ++;
