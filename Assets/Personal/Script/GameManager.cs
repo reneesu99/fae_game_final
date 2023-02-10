@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -17,9 +19,12 @@ public class GameManager : MonoBehaviour
     public TileManager tileManager;
     public UI_Manager uiManager;
     public Player player;
+    public float startTime;
 
     private void Awake()
     {
+        startTime = Time.time;
+        curDay = 0;
         if(instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -33,6 +38,19 @@ public class GameManager : MonoBehaviour
         tileManager = GetComponent<TileManager>();
         uiManager = GetComponent<UI_Manager>();
         player = FindObjectOfType<Player>();
+
+    }
+
+    private void Update()
+    {
+
+
+        var newDay = (int)Math.Floor((Time.time - startTime)/10);
+        if(newDay > curDay)
+        {
+            curDay = newDay;
+            Debug.Log("New Day");
+        }
 
     }
     // void OnEnable ()
