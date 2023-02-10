@@ -9,6 +9,8 @@ public class NPC : MonoBehaviour
 {
     public GameObject dialoguePanel;
     public bool cat;
+    public bool store;
+
 
     public Conversation[] conversations;
     public TMP_Text dialogueText;
@@ -62,6 +64,11 @@ public class NPC : MonoBehaviour
             if(cat)
             {
                 dialogueManager.New(new List<string>() {"Hi Renee! What's up?"}, null, true);
+            }
+            else if(store)
+            {
+                dialogueManager.New(new List<string>() {"Hi Renee! Did you need to buy or sell?"}, null, false, true);
+
             }
             else
             {

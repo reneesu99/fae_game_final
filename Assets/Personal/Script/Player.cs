@@ -79,6 +79,7 @@ public class Player : MonoBehaviour
         {
             Item item = other.GetComponent<Item>();
             inventory.Add("Backpack",item);
+            GameManager.instance.uiManager.RefreshAll();
             if (quest.goal.itemName == item.data.itemName)
             {
                 quest.goal.currentAmount ++;

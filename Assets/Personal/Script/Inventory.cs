@@ -11,6 +11,7 @@ public class Inventory
         public string itemName;
         public int count;
         public int maxAllowed;
+        public int price;
         public Sprite icon;
 
         public Slot()
@@ -44,6 +45,7 @@ public class Inventory
         {
             this.itemName = itemName;
             this.icon = icon;
+            this.price = 10;
             count ++;
         
         }
@@ -60,6 +62,11 @@ public class Inventory
                 count--;
             }
         }
+        // public void SellItem()
+        // {
+        //     GameManager.instance.money += price;
+        //     RemoveItem();
+        // }
     }   
     public List<Slot> slots = new List<Slot>();
 
@@ -85,6 +92,7 @@ public class Inventory
             {
                 slot.icon = item.data.icon;
                 slot.count++;
+                slot.price = 10;
                 return;
             }
         }
@@ -95,6 +103,7 @@ public class Inventory
                 slot.icon = item.data.icon;
                 slot.itemName= item.data.itemName;
                 slot.count = 1;
+                slot.price = 10;
                 return;
             }
         }
@@ -119,6 +128,18 @@ public class Inventory
 
         }
     }
+
+    // public void Sell(int index)
+    // {
+    //     Slot slot = slots[index];
+    //     if(slot.count > 0)
+    //     {
+    //         slot.SellItem();
+    //         GameManager.instance.uiManager.RefreshAll();
+    //     }
+    // }
+
+
 
     public void MoveSlot(int fromIndex, int toIndex, Inventory toInventory)
     {

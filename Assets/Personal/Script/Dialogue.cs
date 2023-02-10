@@ -10,6 +10,9 @@ public class Dialogue: MonoBehaviour
     public GameObject dialoguePanel;
     public TMP_InputField inputField;
     public GameObject inputPanel;
+    public GameObject sellButton;
+    public GameObject buyButton;
+
     public static bool isOpen;
 
 
@@ -28,11 +31,17 @@ public class Dialogue: MonoBehaviour
     private bool AI;
 
 
-    public void New(List<string> dialogueGiven, Quest questGiven = null, bool AI = false)
+    public void New(List<string> dialogueGiven, Quest questGiven = null, bool AI = false, bool store = false)
     {
         isOpen = true;
         dialogue = dialogueGiven;
         this.AI = AI;
+
+        if(store)
+        {
+            sellButton.SetActive(true);
+            buyButton.SetActive(true);
+        }
 
         if(questGiven != null)
         {
@@ -48,6 +57,8 @@ public class Dialogue: MonoBehaviour
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
+        buyButton.SetActive(false);
+        sellButton.SetActive(false);
         toggleInputTextPanel(false);
         isOpen = false;
 
@@ -110,6 +121,15 @@ public class Dialogue: MonoBehaviour
         NextLine();
 
         // takes player input gets API response, appends to dialogue and runs NextLine
+
+    }
+
+    public async void Sell()
+    {
+        zeroText();
+        // open player inventory with the sell button
+        GameManager.instance.uiManager.ToggleInventory();
+
 
     }
 

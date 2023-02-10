@@ -39,6 +39,7 @@ public class Inventory_UI : MonoBehaviour
                 // Debug.Log(slots.Count);
                 if(inventory.slots[i].itemName !="")
                 {
+                    Debug.Log("refresh" + inventory.slots[i]);
                     slots[i].SetItem(inventory.slots[i]);
                 }
                 else
@@ -70,7 +71,21 @@ public class Inventory_UI : MonoBehaviour
     }
 
 
+    public void openSellSlots()
+    {
+        if(slots.Count == inventory.slots.Count)
+        {
+            for(int i = 0; i < slots.Count; i++)
+            {
+                // enable function to sell slot
+                
+                slots[i].ToggleSell(true);
+                
+            }
 
+        }
+        
+    }
     public void Remove()
     {
         Item itemToDrop = GameManager.instance.itemManager.GetItemByName(
