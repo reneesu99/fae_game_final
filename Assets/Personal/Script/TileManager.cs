@@ -16,6 +16,10 @@ public class TileManager : MonoBehaviour
     [SerializeField] private Tile crop3Tile;
     [SerializeField] private Tile crop4Tile;
     [SerializeField] private Tile crop5Tile;
+    [SerializeField] public Player player;
+    [SerializeField] public Item carrot;
+    [SerializeField] public Toolbar_UI toolbarUI;
+    // [SerializeField] public Dictionary<string, Item> CropTileDict = new Dictionary<string, Item>();
 
 
 
@@ -48,11 +52,22 @@ public class TileManager : MonoBehaviour
 
     public void SetInteracted(Vector3Int position)
     {
-        TileBase tile = interactableMap.GetTile(position);
-        Debug.Log(tile.name);
-        if(tile.name == "Summer_Plowed")
+        TileBase cropTile = cropMap.GetTile(position);
+        TileBase groundTile = interactableMap.GetTile(position);
+
+        // Debug.Log(tile.name);
+        if(groundTile.name == "Summer_Plowed")
         {
-            cropMap.SetTile(position, plantedTile);
+            if(!cropTile && toolbarUI.selectedSlot.name == "Carrot Seeds")
+            {
+                cropMap.SetTile(position, plantedTile);
+                player.inventory.GetInventoryByName("Toolbar").Remove(toolbarUI.selectedSlot.slotID);
+            }
+            else if(cropTile.name == "crops_5")
+            {
+                player.inventory.Add("Backpack", carrot);
+                cropMap.SetTile(position, null);
+            }
         }
         else
         {

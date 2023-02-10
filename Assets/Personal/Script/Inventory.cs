@@ -104,7 +104,9 @@ public class Inventory
 
     public void Remove(int index)
     {
+        Debug.Log(index);
         Slot slot = slots[index];
+
         if(slot.count > 0)
         {
             slot.count--;
@@ -113,6 +115,8 @@ public class Inventory
                 slot.icon = null;
                 slot.itemName= "";
             }
+            GameManager.instance.uiManager.RefreshAll();
+
         }
     }
 

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public CropData selectedCropToPlant;
     public TileManager tileManager;
+    public Toolbar_UI toolbarUI;
     public UI_Manager uiManager;
     public Player player;
     public float startTime;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         tileManager = GetComponent<TileManager>();
         uiManager = GetComponent<UI_Manager>();
         player = FindObjectOfType<Player>();
+        toolbarUI = FindObjectOfType<Toolbar_UI>();
 
     }
 
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
 
 
-        var newDay = (int)Math.Floor((Time.time - startTime)/10);
+        var newDay = (int)Math.Floor((Time.time - startTime)/2);
         if(newDay > curDay)
         {
             curDay = newDay;

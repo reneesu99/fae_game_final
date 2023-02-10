@@ -48,6 +48,7 @@ public class Dialogue: MonoBehaviour
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
+        toggleInputTextPanel(false);
         isOpen = false;
 
     }

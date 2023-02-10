@@ -34,7 +34,8 @@ public class NPC : MonoBehaviour
         // TODO: use dictionary to store conversations 
         if(conversations[0].quest.isActive)
         {
-
+            //TODO: if appropriate items are selected in toolbar, then quest is completed
+            // if(GameManager.instance.toolbarUI.selectedItem == conversations[0].quest.goal.item && GameManager.instance.toolbarUI.selectedItemAmount >= conversations[0].quest.goal.requiredAmount)
             if(conversations[0].quest.goal.IsReached())
             {
                 dialogue = conversations[0].after;
@@ -60,7 +61,7 @@ public class NPC : MonoBehaviour
             dialoguePanel.SetActive(true);
             if(cat)
             {
-                dialogueManager.New(new List<string>() {"Hi"}, null, true);
+                dialogueManager.New(new List<string>() {"Hi Renee! What's up?"}, null, true);
             }
             else
             {

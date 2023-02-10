@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1053372380488391766}
   - component: {fileID: 4307016909524689357}
   m_Layer: 0
-  m_Name: Hoe
+  m_Name: Carrot Seeds
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2049397989, guid: 84dbaa58e629a4956bcad10525ee64fa, type: 3}
+  m_Sprite: {fileID: -1822200812, guid: 2fe6de7ae57ec41dead2197967b0a66e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bece5fdb53fb340dab586981c4dba230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: ceefd785bc5a14f048627003bdf51277, type: 2}
+  data: {fileID: 11400000, guid: ad576e7baa32249e4b3ef5905c3e114c, type: 2}
   rb2d: {fileID: 0}
 --- !u!50 &4307016909524689357
 Rigidbody2D:
