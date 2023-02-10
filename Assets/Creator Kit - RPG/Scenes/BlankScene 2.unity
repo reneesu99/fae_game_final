@@ -78037,10 +78037,14 @@ MonoBehaviour:
   curDay: 0
   money: 0
   cropInventory: 0
+  onNewDay:
+    m_PersistentCalls:
+      m_Calls: []
   selectedCropToPlant: {fileID: 0}
   tileManager: {fileID: 0}
   uiManager: {fileID: 0}
   player: {fileID: 0}
+  startTime: 0
 --- !u!4 &1544131214
 Transform:
   m_ObjectHideFlags: 0
@@ -78074,6 +78078,11 @@ MonoBehaviour:
     type: 2}
   tilledTile: {fileID: 11400000, guid: ff3325e6ab0874764aa350179038800d, type: 2}
   plantedTile: {fileID: 11400000, guid: e3a9ab2b02df94663a2006c46066e5fd, type: 2}
+  crop1Tile: {fileID: 11400000, guid: a860a248e7f424d90bdf3a296abc3247, type: 2}
+  crop2Tile: {fileID: 11400000, guid: 692516810696c4961beb9d1ba5956042, type: 2}
+  crop3Tile: {fileID: 11400000, guid: 2eef0b800d1484a79b4b69d2d64e0ccd, type: 2}
+  crop4Tile: {fileID: 11400000, guid: 3dd6780e60d5f41f59f4f36ca57ddaa0, type: 2}
+  crop5Tile: {fileID: 11400000, guid: 6a8ae1347ee0b44aa9446c87ed8c0c6c, type: 2}
 --- !u!114 &1544131216
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     public int curDay;
     public int money;    
     public int cropInventory;
+    public UnityEvent onNewDay;
 
     public CropData selectedCropToPlant;
-    public event UnityAction onNewDay;
     public TileManager tileManager;
     public UI_Manager uiManager;
     public Player player;
@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        onNewDay = new UnityEvent();
+        onNewDay.AddListener(growCrops);
         startTime = Time.time;
         curDay = 0;
         if(instance != null && instance != this)
@@ -49,9 +51,16 @@ public class GameManager : MonoBehaviour
         if(newDay > curDay)
         {
             curDay = newDay;
-            Debug.Log("New Day");
+            onNewDay?.Invoke();
         }
 
+    }
+
+    private void growCrops()
+    {
+        tileManager.growCrops();
+
+        
     }
     // void OnEnable ()
     // {
