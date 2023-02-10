@@ -6,8 +6,12 @@ public class TileManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Tilemap interactableMap;
+    [SerializeField] private Tilemap cropMap;
+
     [SerializeField] private Tile hiddenInteractableTile;
-        [SerializeField] private Tile interactedTile;
+    [SerializeField] private Tile tilledTile;
+    [SerializeField] private Tile plantedTile;
+
 
     void Start()
     {
@@ -25,7 +29,7 @@ public class TileManager : MonoBehaviour
         TileBase tile = interactableMap.GetTile(position);
         if(tile!= null)
         {
-            if(tile.name == "Interactable")
+            if(tile.name == "Interactable" || tile.name == "Summer_Plowed")
             {
                 return true;
             }
@@ -36,8 +40,23 @@ public class TileManager : MonoBehaviour
 
     public void SetInteracted(Vector3Int position)
     {
-        interactableMap.SetTile(position, interactedTile); 
+        TileBase tile = interactableMap.GetTile(position);
+        Debug.Log(tile.name);
+        if(tile.name == "Summer_Plowed")
+        {
+            cropMap.SetTile(position, plantedTile);
+        }
+        else
+        {
+            interactableMap.SetTile(position, tilledTile);
+        }
 
     }
+
+    // public void SetPlanted(Vector3Int position)
+    // {
+    //     interactableMap.SetTile(position, farmedTile); 
+
+    // }
 
 }
