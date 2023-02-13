@@ -4,8 +4,12 @@ using UnityEngine;
 
 [System.Serializable]
 public class Inventory
+
 {
+    public Quest quest;
+
     [System.Serializable]
+
     public class Slot
     {
         public string itemName;
@@ -80,16 +84,22 @@ public class Inventory
     }
     public void Add(Item item)
     {
+        quest = GameManager.instance.player.quest;
 
         // if (item.type == quest.goal.type)
         // {
         //     Debug.Log("goal")
         //     quest.goal.currentAmount ++;
         // }
+        if (quest.goal.itemName == item.data.itemName)
+        {
+            quest.goal.currentAmount ++;
+        }
         foreach(Slot slot in slots)
         {
             if(slot.itemName== item.data.itemName)
             {
+
                 slot.icon = item.data.icon;
                 slot.count++;
                 slot.price = 10;

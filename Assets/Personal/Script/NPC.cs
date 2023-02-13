@@ -41,7 +41,6 @@ public class NPC : MonoBehaviour
             if(conversations[0].quest.goal.IsReached())
             {
                 dialogue = conversations[0].after;
-                player.gold += conversations[0].quest.gold;
                 quest = null;
 
             }
@@ -58,16 +57,16 @@ public class NPC : MonoBehaviour
             quest = conversations[0].quest;
 
         }
-        if(Input.GetKeyDown(KeyCode.F) && playerIsClose)
+        if(Input.GetKeyDown(KeyCode.F) && playerIsClose && !Dialogue.isOpen)
         {
             dialoguePanel.SetActive(true);
             if(cat)
             {
-                dialogueManager.New(new List<string>() {"Hi Renee! What's up?"}, null, true);
+                dialogueManager.New(new List<string>() {"Hi! What's up?"}, null, true);
             }
             else if(store)
             {
-                dialogueManager.New(new List<string>() {"Hi Renee! Did you need to buy or sell?"}, null, false, true);
+                dialogueManager.New(new List<string>() {"Hi Rooky! Did you need to buy or sell?"}, null, false, true);
 
             }
             else

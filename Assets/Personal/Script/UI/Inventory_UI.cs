@@ -86,6 +86,21 @@ public class Inventory_UI : MonoBehaviour
         }
         
     }
+    public void closeSellSlots()
+    {
+        if(slots.Count == inventory.slots.Count)
+        {
+            for(int i = 0; i < slots.Count; i++)
+            {
+                // enable function to sell slot
+                
+                slots[i].ToggleSell(false);
+                
+            }
+
+        }
+        
+    }
     public void Remove()
     {
         Item itemToDrop = GameManager.instance.itemManager.GetItemByName(

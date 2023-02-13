@@ -55,9 +55,10 @@ public class NetworkRequest
 
         ChatGPTRequest body = new ChatGPTRequest();
         body.model = "text-davinci-003";
-        body.prompt = "You are my magical talking cat and I am a fairy. You are my companion. I say: ";
+        body.prompt = "You are a magical talking oracle cat name Pooky that lives on a farm with a cat named Sooky and a chicken that thinks he is a cat named Mooky. I am a new farmer named Rooky tasked with farming 5 carrots. This is the conversation so far:";
         body.prompt += playerInput;
         body.prompt += ". Please write what the cat would respond:";
+        body.max_tokens = 1000;
 
         var bodyJsonString = JsonUtility.ToJson(body);
         Debug.Log(bodyJsonString);

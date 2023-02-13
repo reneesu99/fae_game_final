@@ -21,8 +21,7 @@ public class Dialogue: MonoBehaviour
     public float wordSpeed;
 
     public GameObject contButton;
-
-
+    public string AIConvo;
     private Quest quest;
     
 
@@ -115,7 +114,9 @@ public class Dialogue: MonoBehaviour
     public async void Submit()
     {
         string playerInput = getInput();
-        string chatGPTResponse = await getChatGPTResponse(playerInput);
+        AIConvo += " Rooky: " + playerInput;
+        string chatGPTResponse = await getChatGPTResponse(AIConvo);
+        AIConvo += " Pooky: " + chatGPTResponse;
         dialogue.Add(chatGPTResponse);
         toggleInputTextPanel(false); 
         NextLine();
