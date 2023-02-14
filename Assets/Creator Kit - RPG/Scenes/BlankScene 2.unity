@@ -51854,6 +51854,7 @@ MonoBehaviour:
   questGiver: {fileID: 1683314475}
   wordSpeed: 0.06
   contButton: {fileID: 1047902087}
+  AIConvo: 
   dialogue: []
 --- !u!4 &123110187
 Transform:
@@ -90608,7 +90609,7 @@ MonoBehaviour:
       Sooky over there to my left sells and buys any goods you got. I dont know where
       she gets her stuff and I don't know where she sells her stuff but she's fast
       with her money.
-    - 'Pooky over there to my left is an all knowing soothsayer. She knows everything.....Well
+    - 'Pooky over there to my right is an all knowing soothsayer. She knows everything.....Well
       ok she gets some things wrong but ask her something and she knows more than
       you''d expect a small time farm cat to know. '
     - And there used to be Hooky, *cluckity* the old farmer cat. But well he ran
@@ -90616,14 +90617,14 @@ MonoBehaviour:
     - Imagine! A cat farming oranges. *cluck cluck* Ridiculous. But anyways.
     - 'Oh! And there''s of course me - Mooky! I''m the cat who started this whole
       operation *cluck*. '
-    - What? Of course I'm a cat! 100% Siberian Forest cat.
-    - '*cluck* Anyways there''s no point arguing over my pedigree. We need you to
-      get started fast. '
+    - I'm 100% Siberian Forest cat.
+    - '*cluck* Anyways we need you to get started fast. '
     - Your name's Renee? Hmm I'll call you Rooky.
     - '*cluck* Alright Rooky your first task is to pick up those carrot seeds and
       get farming! Sell 5 carrots to Sooky over there and then we can talk. *cluck* '
-    - ..also while you don't need to, have a conversation with Pooky. I hear she's
-      got a new ChatGPT book or something. She's thinking herself even smarter now.
+    - ..also if you have time, you should go and have a conversation with Pooky.
+      I hear she's got a new ChatGPT book or something. She's thinking herself even
+      smarter now.
     - and dont forget to pick up the seeds next to me. They'll get added to your
       backpack but you'll need to move them to your selected slot in the toolbar
       and then use the "E" button to plant them.
